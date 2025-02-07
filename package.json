@@ -1,6 +1,6 @@
 {
   "name": "@enymo/glide",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "React UI Framework",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
