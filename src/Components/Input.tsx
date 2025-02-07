@@ -17,6 +17,7 @@ globalStyle.addRule(".glide-input .input", {
 globalStyle.apply();
 
 export type InputProps<PrefixProps, SuffixProps> = {
+    form?: string,
     /**
      * The name of the input. This is used to register the input with the form context.
      */
@@ -196,6 +197,7 @@ export default <PrefixProps extends object, SuffixProps extends object>(config: 
         min,
         max,
         rows,
+        form: formId,
         ...props
     }: InputProps<PrefixProps, SuffixProps>) => {
 
@@ -238,6 +240,7 @@ export default <PrefixProps extends object, SuffixProps extends object>(config: 
                                     value={value}
                                     onChange={e => onChange?.(e.target.value)}
                                     disabled={disabled}
+                                    form={formId}
                                     {...register}
                                 >
                                     {children}
@@ -260,6 +263,7 @@ export default <PrefixProps extends object, SuffixProps extends object>(config: 
                                 min,
                                 max,
                                 rows,
+                                form: formId,
                                 ...register,
                             })}
                         </div>

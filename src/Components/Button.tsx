@@ -36,7 +36,8 @@ globalStyle.apply();
 
 let glideCounter = 0;
 
-export interface ButtonProps<Variants extends string> extends Omit<ClickableProps, "children"> {
+export interface ButtonProps<Variants extends string> extends Omit<ClickableProps, "children" | "onClick"> {
+    onClick?: (e: React.MouseEvent) => void | Promise<void>,
     variant?: WithoutPrivate<Variants>,
     loading?: boolean,
     flex?: number
@@ -124,7 +125,7 @@ export default (<Variants extends string, ElementProps extends {}>(config: Glide
         const disabled = disabledProp ?? loadingProp  ?? disabledContext ?? loadingContext ?? loadingState;
         const loading = config.loader ? (loadingProp ?? (submit && loadingContext) ?? loadingState ?? false) : false;
 
-        const handleClick: React.MouseEventHandler = useCallback(async e => {
+        const handleClick = useCallback(async (e: React.MouseEvent) => {
             setLoadingState(true);
             try {
                 await onClick?.(e);

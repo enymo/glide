@@ -39,7 +39,7 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "@enymo/react-clickable-router": "^1.0.0",
+    "@enymo/react-clickable-router": "^2.0.1",
     "@enymo/react-form-component": "^1.5.4",
     "@enymo/react-hybrid-input-hook": "^1.1.4",
     "react": ">=17.0.0",
